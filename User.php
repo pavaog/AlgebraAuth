@@ -18,11 +18,11 @@ class User
             $cookieValue = (Cookie::get($this->_cookieName));
             $user_id = $this->findUser($cookieValue);
             if($user_id) {
-	            if($this->find($user_id)) {
-	                $this->_isLoggedIn = true;
-	            } else {
-	                $this->logout();
-	            }
+                if($this->find($user_id)) {
+                    $this->_isLoggedIn = true;
+                } else {
+                    $this->logout();
+                }
             }
         } else if(Session::exists($this->_sessionName)) {
             $user_id = Session::get($this->_sessionName);
